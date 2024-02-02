@@ -20,11 +20,21 @@
 
 }
 
-.dark-mode {
+/*.dark-mode {
     --bg-color: #0b061f;
     --text-color: #fdfdfd;
     --shadow-color: rgba(0,0,0,.7);
+}*/
+
+.dark-mode {
+    --bg-color: #1a1a1a; 
+    --text-color: #fff;     
+    --main-color: #ffcc00;  
+    --white-color: #1a1a1a;    
+    --shadow-color: rgba(255, 255, 255, 0.2); 
 }
+
+
 
 html{
     font-size: 62.5%;
