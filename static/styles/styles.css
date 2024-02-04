@@ -928,6 +928,7 @@ span {
     margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
+    width:70%;
 }
 
 .chat-input button {
