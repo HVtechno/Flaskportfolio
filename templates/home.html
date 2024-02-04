@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hari Portfolio</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/static/styles/styles.css">
 </head>
 <body>
@@ -178,6 +179,28 @@
             <input type="submit" value="Send Message" class="btn"> 
         </form>
     </section>
+
+    <div class="chatbot-icon" onclick="toggleChatbox()">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chatbox__image--header">
+                <img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-5--v1.png" alt="image">
+            </div>
+            <div class="chatbox__content--header">
+                <h4 class="chatbox__heading--header">Chat support</h4>
+                <p class="chatbox__description--header">Hello, I'm Harvi, Hari's BOT assistant. How may I assist you?</p>
+            </div>
+            <span class="close" onclick="toggleChatbox()">&times;</span>
+        </div>
+        <div id="chat-display" class="chat-content"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
     <!--Footer Design-->
 

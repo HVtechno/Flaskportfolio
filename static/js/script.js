@@ -61,3 +61,67 @@ ScrollReveal.reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal.reveal('.home-img img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
 ScrollReveal.reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal.reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });*/
+
+function toggleChatbox() {
+    var chatbox = document.querySelector('.chat-container');
+    
+    if (chatbox.style.display === 'none' || chatbox.style.display === '') {
+        chatbox.classList.add('open');
+        chatbox.classList.remove('close');
+    } else {
+        chatbox.classList.add('close');
+        chatbox.classList.remove('open');
+    }
+    setTimeout(function() {
+        chatbox.style.display = (chatbox.style.display === 'none' || chatbox.style.display === '') ? 'block' : 'none';
+    }, 300);
+}
+
+function sendMessage() {
+    var userInput = document.getElementById('user-input').value;
+    if (userInput.trim() === '') return;
+
+    var chatDisplay = document.getElementById('chat-display');
+    chatDisplay.innerHTML += '<div class="message user">' + userInput + '</div>';
+    document.getElementById('user-input').value = '';
+
+    // Send user input to the server
+    fetch('/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user_input: userInput,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Introduce a slight delay before displaying the bot's response
+        setTimeout(function() {
+            var botResponse = data.bot_response;
+            chatDisplay.innerHTML += '<div class="message bot">' + botResponse + '</div>';
+            chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to the latest message
+        }, 500); // Adjust the delay duration as needed
+    })
+    .catch(error => {
+        console.error('Error sending message:', error);
+    });
+}
+
+// Event listener for Enter key
+document.getElementById('user-input').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        sendMessage();
+    }
+});
+
+// Event listener for Esc key
+document.addEventListener('keyup', function(event) {
+    if (event.key === 'Escape') {
+        // Hide the chat dialogue box (you may need to implement your logic here)
+        var chatbox = document.querySelector('.chat-container');
+        chatbox.style.display = 'none';
+    }
+});
