@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Response</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .response-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        .thank-you-message {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="response-container">
+        <h2>Hello, Hari!</h2>
+        <p>Your portfolio has sparked interest, and someone is reaching out to you!</p>
+        <ul>
+            <li><strong>Name:</strong> {{ user_name }}</li>
+            <li><strong>Email:</strong> {{ user_email }}</li>
+            <li><strong>Mobile Number:</strong> {{ user_mobile }}</li>
+            <li><strong>Subject:</strong> {{ email_subject }}</li>
+            <li><strong>Message:</strong> {{ user_message }}</li>
+        </ul>
+        <p>Please take a moment to review and respond promptly.</p>
+        <p class="thank-you-message">Thank you for your attention!</p>
+    </div>
+</body>
+</html>

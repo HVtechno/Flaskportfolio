@@ -148,6 +148,15 @@ section {
 
 .home-content p{
     font-size: 1.6rem;
+    text-align: justify;
+}
+
+.hidden {
+    display: none;
+}
+
+.expanded {
+    display: block;
 }
 
 .home-content .social-media a {
@@ -324,7 +333,8 @@ span {
 
 .about-content p {
     font-size: 1.6rem;
-    margin: 2rem 0 
+    margin: 2rem 0;
+    text-align: justify;
 }
 
 .services{
@@ -967,4 +977,21 @@ span {
 .user-prefix, .bot-prefix {
     font-weight: bold;
     margin-right: 5px;
+}
+
+.swal2-popup {
+    font-size: 1rem;
+}
+
+.swal2-success-circular-line-left, .swal2-success-circular-line-right {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

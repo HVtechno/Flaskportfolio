@@ -125,3 +125,69 @@ document.addEventListener('keyup', function(event) {
         chatbox.style.display = 'none';
     }
 });
+
+/*----Experienced years-----*/
+
+var startDate = new Date('2015-09-16');
+var currentDate = new Date();
+var yearsExperience = currentDate.getFullYear() - startDate.getFullYear();
+document.getElementById('experience-years').textContent = yearsExperience;
+
+/*---Download CV -----*/
+
+function downloadCV(event) {
+    event.preventDefault();
+
+    var link = document.getElementById('download-link');
+    if (link) {
+        document.body.removeChild(link);
+    }
+    link = document.createElement('a');
+    link.href = '/static/Resume/Harihara_Ganesh.pdf';
+    link.download = 'Harihara_Ganesh.pdf';
+    link.id = 'download-link';
+
+    document.body.appendChild(link);
+    link.click();
+}
+
+/*--Read me ----*/
+
+function toggleContent() {
+    event.preventDefault();
+    var content = document.getElementById('expand-content');
+    content.classList.toggle('hidden');
+    content.classList.toggle('expanded');
+}
+
+/*----Send Message----*/
+
+function initializeContactForm() {
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactForm = document.querySelector('#contact-form');
+
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            try {
+                const formData = new FormData(contactForm);
+                await fetch('/send_message', {
+                    method: 'POST',
+                    body: formData,
+                });
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Message sent successfully!',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    contactForm.reset();
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+}
+
+initializeContactForm();

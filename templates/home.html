@@ -8,11 +8,13 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/static/styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
     <!-- Navbar Design -->
     <header class="header">
-        <a href="#" class="logo">Portfolio.</a>
+        <a href="#" class="logo">𝓗𝓐𝓡𝓘</a>
 
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
@@ -31,37 +33,37 @@
         <div class="home-content">
             <h3>Hello, I am</h3>
             <h1>Harihara Ganesh</h1>
-            <p>lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat similique modi
-            facilis, commodi dolore 
-                sed. laudantium, vitae iure.</p>
+            <p>Experienced Senior Developer/DevOps professional with <span id="experience-years"></span> years of expertise.
+                Azure certified in Data Engineering and proficient in Azure DevOps and Agile methodologies.</p>
+            <p>Passionate about driving innovation and growth through collaborative problem-solving.</p>
 
         <div class="social-media">
-            <a href="#"><i class='bx bxl-facebook'></i></a>
-            <a href="#"><i class='bx bxl-twitter'></i></a>
-            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
-            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <!--<a href="#"><i class='bx bxl-instagram-alt'></i></a>-->
+            <a href="https://www.linkedin.com/in/harihara-subramanian-ganesh-57ba71166/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://wa.link/e3p9t3/" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            <!--<a href="#"><i class='bx bxl-facebook'></i></a>-->
         </div>
 
-            <a href="#" class="btn">Download CV</a>
+            <a href="/static/Resume/Harihara_Ganesh.pdf" download="Harihara_Ganesh.pdf" class="btn" onclick="downloadCV()">Download CV</a>
         </div>
         
         <div class="profession-container">
             <div class="profession-box">
                 <div class="profession" style="--i:0;">
                     <i class='bx bx-code-alt'></i>
-                    <h3>Web Developer</h3>
+                    <h3>Senior Developer</h3>
                 </div>
                 <div class="profession" style="--i:1;">
-                    <i class='bx bx-camera'></i>
-                    <h3>Web Developer</h3>
+                    <i class='bx bxl-google-cloud'></i>
+                    <h3>Azure Developer</h3>
                 </div>
                 <div class="profession" style="--i:2;">
-                    <i class='bx bx-palette'></i>
-                    <h3>Web Developer</h3>
+                    <i class='bx bx-data'></i>
+                    <h3>Data Engineer</h3>
                 </div>
                 <div class="profession" style="--i:3;">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>Web Developer</h3>
+                    <i class='bx bx-palette'></i>
+                    <h3>Solution Arch</h3>
                 </div>
 
                 <div class="circle"></div>
@@ -78,17 +80,14 @@
 
     <section class="about" id="about">
         <div class="about-img">
-            <img src="/static/images/home.png" alt="">
+            <img src="/static/images/intro1.png" alt="">
         </div>
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
-            <h3>Hi, I'm here to Help Your Next Project!</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae corrupti aut
-             at, cupiditate, fugit similique illum vitae eaque voluptates consectetur ipsam
-             doloribus eum dolor. Enim autem tempora odio incidunt! Ipsam hic molestias ad voluptates
-             doloribus ratione animi alias dicta quo.</p>
-             <a href="#" class="btn">Read More</a>
-
+            <h3>Hi, I'm here to Drive Success in Your Next Project!</h3>
+            <p>With a passion for excellence and a proven track record in software development, DevOps, DataOps, and business intelligence, I bring extensive experience to the table. My expertise extends to Microsoft Azure, where I hold certifications in Data Engineering, Development, and Data Fundamentals.</p>
+            <p class="hidden" id="expand-content">Specializing in Azure DevOps and Agile methodologies, I am well-equipped to design, deploy, and manage sophisticated software systems. My commitment is to collaborate with a dynamic team of professionals, leveraging my technical proficiency, problem-solving skills, and leadership capabilities to fuel innovation and contribute to organizational growth.</p>
+            <a href="#" class="btn" onclick="toggleContent(event)">Read More</a>
         </div>
     </section>
 
@@ -107,16 +106,16 @@
                 <a href="#" class="btn">Read More</a>
             </div>
             <div class="services-box">
-                <i class = 'bx bx-code-alt'></i>
-                <h3>Web Development</h3>
+                <i class = 'bx bx-bot'></i>
+                <h3>Chatbot</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae corrupti aut
                     at, cupiditate, fugit similique illum vitae eaque voluptates consectetur ipsam
                     doloribus eum dolor.</p>
                 <a href="#" class="btn">Read More</a>
             </div>
             <div class="services-box">
-                <i class = 'bx bx-code-alt'></i>
-                <h3>Web Development</h3>
+                <i class = 'bx bx-code'></i>
+                <h3>Process Automation</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae corrupti aut
                     at, cupiditate, fugit similique illum vitae eaque voluptates consectetur ipsam
                     doloribus eum dolor.</p>
@@ -166,17 +165,17 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
-        <form action="#">
+        <form id="contact-form" action="{{ url_for('send_message') }}" method="post">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" name="full_name" placeholder="Full Name">
+                <input type="email" name="email_address" placeholder="Email Address">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="number" name="mobile_number" placeholder="Mobile Number">
+                <input type="text" name="email_subject" placeholder="Email Subject">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn"> 
+            <textarea name="your_message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
 
@@ -201,6 +200,10 @@
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
+
+    <!--Toast Messages-->
+
+    <div id="toast-container" class="toast-top-right"></div>
 
     <!--Footer Design-->
 
