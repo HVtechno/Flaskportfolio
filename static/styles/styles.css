@@ -555,6 +555,16 @@ section {
     flex: 1 1 20rem;
 }
 
+@media 
+(max-width: 768px),
+(max-width: 617px),
+(max-width: 450px),
+(max-width: 365px) {
+    .skills-row {
+        flex-direction: column;
+      }
+}
+
 .skills-column .title{
     font-size: 2.5rem;
     margin: 0 0 2.5rem 2rem;
@@ -565,6 +575,24 @@ section {
     border: .2rem solid var(--main-color);
     border-radius: .6rem;
     padding: .5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.skills-box .skills-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--secondary-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.skills-box .skills-content:hover::before {
+    width: 100%;
 }
 
 .skills-content .progress {

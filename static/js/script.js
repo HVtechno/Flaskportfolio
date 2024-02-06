@@ -192,7 +192,7 @@ function initializeContactForm() {
 
 initializeContactForm();
 
-/*---Service Modal----*/
+/*---Service Modal
 
 function openModal(serviceName, event) {
     event.preventDefault();
@@ -230,4 +230,4 @@ window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
-}
+}*/
