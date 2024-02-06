@@ -191,3 +191,43 @@ function initializeContactForm() {
 }
 
 initializeContactForm();
+
+/*---Service Modal----*/
+
+function openModal(serviceName, event) {
+    event.preventDefault();
+
+    var modal = document.getElementById("myModal");
+    var modalTitle = document.getElementById("modal-title");
+    var modalContent = document.getElementById("modal-content");
+
+    switch (serviceName) {
+        case 'Web Development':
+            modalTitle.innerHTML = "Web Development Services";
+            modalContent.innerHTML = "1. How we can build your web.<br>2. What tech stacks we can use.<br>3. How the process begins from start till deployment.<br>4. How we can modify based on your requirements.";
+            break;
+        default:
+            break;
+    }
+
+    modal.style.display = "block";
+
+    window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Esc") {
+            closeModal();
+        }
+    });
+}
+
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    window.removeEventListener("keydown", function () {});
+}
+
+window.onclick = function (event) {
+    var modal = document.getElementById("myModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
