@@ -19,6 +19,7 @@
     --shadow-color: rgba(0,0,0,.2);
     --chatbot-color: #610261;
     --secondary-color: #04fc9d;
+    --chatbot-message: #04a1fc;
 }
 
 /*.dark-mode {
@@ -35,6 +36,7 @@
     --shadow-color: rgba(255, 255, 255, 0.2); 
     --chatbot-color: #800000;
     --secondary-color: #ad04fc;
+    --chatbot-message: #04fc3a;
 }
 
 
@@ -1236,11 +1238,11 @@ span {
     padding: 8px;
     margin: 5px;
     border-radius: 5px;
-    max-width: 100%;
-    overflow: hidden;
+    max-width: 70%;
+    word-wrap: break-word;
 }
 
-.user {
+/*.user {
     background-color: var(--bg-color);
     align-self: flex-end;
     text-align: right;
@@ -1250,6 +1252,28 @@ span {
     background-color: var(--main-color);
     color: var(--bg-color);
     text-align: left;
+}*/
+
+.user {
+    background-color: var(--chatbot-message);
+    text-align: justify;
+    float: left; /* Add this line to align user messages to the left */
+    clear: both; /* Add this line to ensure proper spacing between messages */
+}
+
+.bot {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    text-align: justify;
+    float: right; /* Add this line to align bot messages to the right */
+    clear: both; /* Add this line to ensure proper spacing between messages */
+}
+
+.message-content {
+    display: inline-block;
+    text-align: left;
+    text-indent: 0; /* Reset the text-indent for the message content */
+    color: var(--bg-color);
 }
 
 .user-prefix, .bot-prefix {

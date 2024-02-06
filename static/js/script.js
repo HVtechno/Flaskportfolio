@@ -62,12 +62,20 @@ ScrollReveal.reveal('.home-img img, .services-container, .portfolio-box, .contac
 ScrollReveal.reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal.reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });*/
 
+/*----Chatbot----*/
+
+var isFirstTime = true;
+
 function toggleChatbox() {
     var chatbox = document.querySelector('.chat-container');
     
     if (chatbox.style.display === 'none' || chatbox.style.display === '') {
         chatbox.classList.add('open');
         chatbox.classList.remove('close');
+        if (isFirstTime) {
+            sendWelcomeMessage();
+            isFirstTime = false;
+        }
     } else {
         chatbox.classList.add('close');
         chatbox.classList.remove('open');
@@ -77,12 +85,20 @@ function toggleChatbox() {
     }, 300);
 }
 
+// Function to send a welcome message from the bot
+function sendWelcomeMessage() {
+    var chatDisplay = document.getElementById('chat-display');
+    var welcomeMessage = "Hi, thanks for reaching out. I am your personal assistant and I can help you with all your questions to know about Hari.";
+    chatDisplay.innerHTML += '<div class="message bot">' + welcomeMessage + '</div>';
+    chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to the latest message
+}
+
 function sendMessage() {
     var userInput = document.getElementById('user-input').value;
     if (userInput.trim() === '') return;
 
     var chatDisplay = document.getElementById('chat-display');
-    chatDisplay.innerHTML += '<div class="message user">' + userInput + '</div>';
+    chatDisplay.innerHTML += '<div class="message user"><span class="message-content">' + userInput + '</span></div>';
     document.getElementById('user-input').value = '';
 
     // Send user input to the server
@@ -97,12 +113,9 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        // Introduce a slight delay before displaying the bot's response
-        setTimeout(function() {
-            var botResponse = data.bot_response;
-            chatDisplay.innerHTML += '<div class="message bot">' + botResponse + '</div>';
-            chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to the latest message
-        }, 500); // Adjust the delay duration as needed
+        var botResponse = data.bot_response;
+        chatDisplay.innerHTML += '<div class="message bot"><span class="message-content">' + botResponse + '</span></div>';
+        chatDisplay.scrollTop = chatDisplay.scrollHeight;
     })
     .catch(error => {
         console.error('Error sending message:', error);
@@ -120,7 +133,6 @@ document.getElementById('user-input').addEventListener('keyup', function(event) 
 // Event listener for Esc key
 document.addEventListener('keyup', function(event) {
     if (event.key === 'Escape') {
-        // Hide the chat dialogue box (you may need to implement your logic here)
         var chatbox = document.querySelector('.chat-container');
         chatbox.style.display = 'none';
     }
