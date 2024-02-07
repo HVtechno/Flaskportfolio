@@ -43,9 +43,9 @@ def chat_response(user_input, chatbot):
     best_pattern = find_matching_pattern(user_input, [pair[0] for pair in chatbot._pairs])
     if best_pattern:
         response = chatbot.respond(best_pattern)
-        return response if response else "I'm sorry, I didn't understand that. Can you please rephrase?"
+        return response if response else "I apologize, my capabilities are limited to patterns I've been trained on. Could you please rephrase your sentence for me"
     else:
-        return "I'm sorry, I didn't understand that. Can you please rephrase?"
+        return "I apologize, my capabilities are limited to patterns I've been trained on. Could you please rephrase your sentence for me"
 
 
 if __name__ == "__main__":

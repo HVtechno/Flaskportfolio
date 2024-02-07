@@ -88,7 +88,7 @@ function toggleChatbox() {
 // Function to send a welcome message from the bot
 function sendWelcomeMessage() {
     var chatDisplay = document.getElementById('chat-display');
-    var welcomeMessage = "Hi, thanks for reaching out. I am your personal assistant and I can help you with all your questions to know about Hari.";
+    var welcomeMessage = "Hello! 😊 I am Here to guide you in understanding Hari better, personally and professionally. Discover his array of skills, rich experiences, and multicultural contributions. Unveil Hari's strengths, innovative ideas, and why he's your ideal partner.";
     chatDisplay.innerHTML += '<div class="message bot">' + welcomeMessage + '</div>';
     chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to the latest message
 }
@@ -100,6 +100,9 @@ function sendMessage() {
     var chatDisplay = document.getElementById('chat-display');
     chatDisplay.innerHTML += '<div class="message user"><span class="message-content">' + userInput + '</span></div>';
     document.getElementById('user-input').value = '';
+
+    chatDisplay.innerHTML += '<div class="message bot typing"><span class="message-content">Typing...</span></div>';
+    chatDisplay.scrollTop = chatDisplay.scrollHeight;
 
     // Send user input to the server
     fetch('/chat', {
@@ -114,8 +117,17 @@ function sendMessage() {
     .then(response => response.json())
     .then(data => {
         var botResponse = data.bot_response;
-        chatDisplay.innerHTML += '<div class="message bot"><span class="message-content">' + botResponse + '</span></div>';
-        chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        setTimeout(function() {
+            var typingIndicator = document.querySelector('.message.bot.typing');
+            if (typingIndicator) {
+                typingIndicator.innerHTML = '<span class="message-content">' + botResponse + '</span>';
+                typingIndicator.classList.remove('typing');
+            }
+            else {
+                chatDisplay.innerHTML += '<div class="message bot"><span class="message-content">' + botResponse + '</span></div>';
+            }
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }, 1000); // Adjust the delay time as needed
     })
     .catch(error => {
         console.error('Error sending message:', error);

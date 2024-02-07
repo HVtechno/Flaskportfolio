@@ -2,115 +2,343 @@
   "intents": [
     {
       "patterns": [
-      "hi",
-      "hello",
-      "hey",
-      "greetings",
-      "what's up",
-      "how are you",
-      "good morning",
-      "good afternoon",
-      "good evening",
-      "howdy"
-    ],
-      "responses": [
-        "Hi there!",
-        "Hello!",
-        "Hey! Welcome to my portfolio.",
-        "I'm doing well, thank you! How about you?",
-        "Good morning! How can I assist you today?",
-        "Good afternoon! What can I help you with?",
-        "Good evening! I'm here to answer any questions you may have.",
-        "Howdy! It's great to see you. What brings you here?"
-    ]
-    },
-    {
-      "patterns": [
-        "how are you",
-        "how's it going",
+        "hello",
+        "hi",
+        "hi there!",
+        "hey there",
+        "good to see you",
         "what's going on",
-        "how do you do",
-        "what's new",
-        "how's your day",
-        "how have you been",
-        "what's happening",
-        "how's everything",
-        "how's life"
+        "how's it going",
+        "hi Harvi",
+        "hello Harvi",
+        "hey Harvi",
+        "how are you doing",
+        "what's new"
       ],
       "responses": [
-        "I'm good, thank you! Ready to assist you.",
-        "Things are going well on my end. How can I help you today?",
-        "Not much, just here and ready to chat. What's on your mind?",
-        "I'm doing well, thanks for asking. What can I do for you?",
-        "Nothing much, just here to chat. How about you?",
-        "My day is going smoothly. What can I do for you?",
-        "I've been good, thank you! What can I assist you with?",
-        "Not too much, just ready to help. What about you?",
-        "Everything is going fine. How can I assist you today?",
-        "Life is good on my end. How can I assist you?"
+        "Hey! Harvi here, ready to assist you with anything you need to know about Hari.",
+        "Hi there! Harvi at your service, providing insights into Hari's world.",
+        "Hello! Harvi here, eager to help you understand Hari better.",
+        "Hi Harvi! How can I assist you in uncovering more about Hari?",
+        "Hello Harvi! What can I tell you about Hari today?",
+        "Hey Harvi! Ready to explore Hari's life?",
+        "Greetings! Harvi here, your guide to Hari's world.",
+        "Hey there! Harvi at your service, offering insights into Hari's personality.",
+        "Hi! Harvi here, let's discover what's new in Hari's life."
+      ]
+    },
+    {
+      "patterns": [
+        "how's your day going",
+        "how's everything with you",
+        "how's your day been",
+        "how are things",
+        "how are you?",
+        "how have you been feeling",
+        "what's the news",
+        "what's happening in your world",
+        "how's your mood",
+        "how are you feeling today",
+        "what's the latest"
+      ],
+      "responses": [
+        "My day is going great, thank you! Ready to chat about Hari?",
+        "Things are good with me. Let's dive into Hari's story!",
+        "My day has been wonderful, thanks for asking. How can I assist you with Hari?",
+        "Things are going smoothly on my end. How about we talk about Hari?",
+        "I've been feeling great, thanks for asking. What would you like to know about Hari?",
+        "Not much news here, just ready to discuss Hari. What's on your mind?",
+        "In my world, it's all about Hari. How about we explore more about them?",
+        "My mood is positive, especially when I get to talk about Hari. How about you?",
+        "Feeling good today, thanks! Let's delve into Hari's life, shall we?",
+        "The latest is all about Hari's adventures. What aspect would you like to know about?"
+      ]
+    },
+    {
+      "patterns": [
+        "what should I call you",
+        "how do you describe yourself",
+        "what's your title",
+        "what name do you respond to",
+        "who made you",
+        "what's your purpose",
+        "are you a real person",
+        "who are you",
+        "what's behind your interface",
+        "who brought you to life"
+      ],
+      "responses": [
+        "You can refer to me as Harvi, Hari's virtual assistant, here to provide insights about him.",
+        "Just call me Harvi. I'm here to help you understand Hari better.",
+        "I respond to the name Harvi, programmed to assist you in discovering more about Hari.",
+        "I introduce myself as Harvi, Hari's chat companion, ready to share information about him.",
+        "I'm Harvi, designed to provide you with details about Hari.",
+        "My purpose is to assist you in understanding Hari better. You can call me Harvi.",
+        "No, I'm not a real person. I'm Harvi, an AI designed to assist you with Hari-related inquiries.",
+        "I am an AI named Harvi, created to help you explore Hari's world.",
+        "Behind my interface is Harvi, an AI developed to enlighten you about Hari.",
+        "I was brought to life by the creators of this chatbot. You can call me Harvi."
+      ]
+    },
+    {
+      "patterns" : [
+        "Who is Hari?",
+        "can you tell me about Hari",
+        "can you Introduce Hari",
+        "What can you tell me about Hari?",
+        "Can you give me some information about Hari?",
+        "What are Hari's qualities?",
+        "short introduction about Hari",
+        "I want to learn more about Hari",
+        "What makes Hari unique?",
+        "Please share some details about Hari",
+        "What defines Hari as a person?",
+        "I'd like to know Hari better",
+        "Can you tell me something interesting about Hari?"
+      ],
+      "responses": [
+        "Hari is a wonderful human being with a kind-hearted, highly motivated, and dedicated personality. He is versatile, focused, and passionate about both his personal and professional life. His confidence and 'never give up' attitude define him.",
+        "Hari is an exceptional individual with a heart of gold and a determination to succeed in all aspects of life.",
+        "Hari is known for his remarkable personality traits, including kindness, dedication, and unwavering motivation.",
+        "Hari embodies the qualities of compassion, resilience, and determination. He is someone you can rely on and admire.",
+        "When it comes to Hari, you'll find a person filled with optimism, integrity, and a genuine desire to make a positive impact on the world.",
+        "Hari's character shines through his actions, displaying sincerity, empathy, and an unwavering commitment to excellence.",
+        "In every aspect of his life, Hari demonstrates integrity, humility, and an insatiable thirst for knowledge and growth.",
+        "What sets Hari apart is his unwavering belief in the power of kindness, hard work, and perseverance to overcome any challenge.",
+        "Hari's journey is defined by his unwavering determination to make a difference, coupled with his genuine kindness and humility.",
+        "Get ready to be inspired by Hari's story, where dedication, passion, and a positive outlook create a path to success and fulfillment.",
+        "Hari's unique blend of qualities, including his compassion, intelligence, and resilience, make him someone truly special.",
+        "Prepare to be impressed by Hari's remarkable journey, filled with triumphs, challenges, and unwavering determination.",
+        "Hari's story is a testament to the power of perseverance, kindness, and a relentless pursuit of excellence."
+      ]
+    },
+    {
+      "patterns": [
+        "Where is Hari from originally?",
+        "What's Hari's hometown?",
+        "Tell me about Hari's origins."
+      ],
+      "responses": [
+        "Hari is originally from India, born in the city of Madurai, located in the southern part of India.",
+        "Hari's roots trace back to Madurai, a beautiful city in southern India, where he was born and raised.",
+        "Hari's hometown is Madurai, a culturally rich city situated in the southern region of India."
+      ]
+    },
+    {
+      "patterns": [
+        "What's Hari's nationality?",
+        "What country does Hari belong to?",
+        "Tell me about Hari's citizenship."
+      ],
+      "responses": [
+        "Hari is Indian by nationality, having been born and raised in India from his childhood.",
+        "Hari holds Indian citizenship, representing the diverse and vibrant culture of his homeland.",
+        "Hari proudly identifies himself as Indian, reflecting his deep connection to the rich heritage of his country."
+      ]
+    },
+    {
+      "patterns": [
+        "What's Hari's background?",
+        "Can you tell me about Hari's origins?",
+        "Where was Hari born?"
+      ],
+      "responses": [
+        "Hari hails from India, specifically from the beautiful city of Madurai in the southern part of the country. His nationality is Indian, and he embodies the rich culture and values of his homeland.",
+        "Hari's background is deeply rooted in the cultural heritage of India, with Madurai being his birthplace and the foundation of his identity.",
+        "Hari's origins lie in the city of Madurai, India, where he was born and raised, shaping his values and outlook on life."
+      ]
+    },
+    {
+      "patterns": [
+        "What's Hari's cultural background?",
+        "Tell me about Hari's cultural heritage.",
+        "From which cultural background does Hari come from?"
+      ],
+      "responses": [
+        "Hari's cultural background is rooted in India, particularly in Madurai, where he was born and raised. His upbringing in this culturally rich environment has influenced his outlook on life and shaped his identity.",
+        "Hari's cultural heritage is deeply intertwined with the traditions and customs of India, reflecting his upbringing in the vibrant city of Madurai.",
+        "Hari comes from a culturally diverse background, with his roots firmly planted in the traditions and values of India, especially those of his hometown, Madurai."
+      ]
+    },
+    {
+      "patterns": [
+        "Why did he move from India to Czech Republic?",
+        "What prompted Hari to relocate from India to Czech Republic?",
+        "Can you tell me the reason behind Hari's move from India to Czech Republic?",
+        "why he moved to czech republic",
+        "what is the main reason for relocation"
+      ],
+      "responses": [
+        "Hari decided to move from India to Czech Republic in pursuit of his master's career in Information & Communication Technology after completing his Bachelor's of Technology from India and gaining 2 years of professional IT experience.",
+        "His decision to move from India to Czech Republic was driven by his ambition to pursue a master's degree in Information & Communication Technology, following his completion of a Bachelor's of Technology in India, coupled with 2 years of professional IT experience.",
+        "Hari's move from India to Czech Republic was primarily motivated by his desire to advance his career through pursuing a master's degree in Information & Communication Technology, building upon his academic background and 2 years of IT experience in India."
+      ]
+    },
+    {
+      "patterns": [
+        "When did Hari land in Czech Republic?",
+        "What was the timing of Hari's arrival in Czech Republic?",
+        "Can you specify the month and year when Hari landed in Czech Republic?",
+        "when he landed in czech republic?"
+      ],
+      "responses": [
+        "Hari landed in Czech Republic in January 2017, amidst the cold winter.",
+        "He arrived in Czech Republic during the winter of 2017, specifically in January.",
+        "Hari's arrival in Czech Republic occurred in January 2017, marking the beginning of his journey in the country."
+      ]
+    },
+    {
+      "patterns": [
+        "Why did Hari choose Czech Republic for his master's career instead of other countries?",
+        "What factors influenced Hari's decision to pursue his master's degree in Czech Republic?",
+        "Can you explain why Hari opted for Czech Republic for his master's studies?",
+        "why he chose czech republic for his masters"
+      ],
+      "responses": [
+        "Despite applying to various colleges worldwide, Hari was drawn to Czech Republic due to its cultural charm, friendly environment, and excellent curriculum, which aligned well with his educational aspirations.",
+        "Hari's decision to pursue his master's degree in Czech Republic was influenced by the country's appealing cultural ambiance, welcoming atmosphere, and the quality of the educational programs offered, which resonated with his academic goals.",
+        "The allure of Czech Republic's cultural richness, coupled with its friendly environment and outstanding academic offerings, played a pivotal role in Hari's decision to pursue his master's studies in the country."
+      ]
+    },
+    {
+      "patterns": [
+        "Can you highlight Hari's professional experiences?",
+        "What are the key aspects of Hari's professional background?",
+        "Could you provide an overview of Hari's work history and accomplishments?",
+        "can you please provide some informations about his experiences?",
+        "what are his professional experiences?",
+        "what's his professional experience",
+        "what are his IT professional experiences",
+        "professional experiences",
+        "professional experience"
+      ],
+      "responses": [
+        "Hari's professional journey has been marked by significant achievements. After completing his Bachelor's, he worked as a Software Engineer at Syntel, focusing on automation & manual testing, and then transitioned to Infosys as a Process Specialist, where he honed stakeholder management & communication skills. Subsequently, at Abinbev, Hari served as a Business Intelligence Expert, handling various responsibilities, and later assumed the role of Senior Developer, where he excelled in full-stack web app development, CI/CD maintenance, and mentoring."
+      ]
+    },
+    {
+      "patterns": [
+        "What are his key IT skills?",
+        "Can you list Hari's primary IT skills?",
+        "What IT skills does Hari possess?",
+        "can you list his skills",
+        "what are his software skills",
+        "what are his coding skills",
+        "what are his database skills",
+        "what are his cloud skills",
+        "what are his data visualization skills",
+        "IT skills",
+        "skills",
+        "Key IT skills"
+      ],
+      "responses": [
+        "Hari's key IT skills include proficiency in Python coding, where he specializes in various libraries and APIs such as Pandas, NumPy, Flask, FastAPI, and requests. Additionally, he is skilled in front-end development using HTML, CSS, JavaScript, and ReactJS, and backend development using Node.js and Python. He also has expertise in VB. Regarding databases, Hari is proficient in SQL, NoSQL, Oracle, and Databricks. In terms of cloud computing, he is Microsoft certified in Azure and also utilizes Google Cloud and Firebase for his personal projects outside of the office. Furthermore, he is currently learning AWS to further enhance his cloud computing skills."
+      ]
+    },
+    {
+      "patterns": [
+        "What are Hari's aspirations for his next career move?",
+        "Could you tell me about Hari's objectives for his upcoming role?",
+        "What is Hari aiming to achieve in his next position?",
+        "What are Hari's career goals for his next role?",
+        "what hari is looking on his next role?",
+        "why he want to switch?",
+        "why he want to move to other company?",
+        "what hari needs from his next role?"
+      ],
+      "responses": [
+        "Hari's aspirations for his next role include achieving a higher position or potentially leading teams within the same technological domain, allowing him to demonstrate his skills while also providing opportunities for continued learning and personal growth.",
+        "For his next role, Hari aims to attain a higher position, possibly even leading teams with a similar technological background, where he can effectively showcase his talents and continue to learn and grow professionally.",
+        "Hari's objectives for his next career move are centered around achieving a position of higher responsibility, possibly involving leadership, where he can contribute his expertise and further his professional development.",
+        "In his next role, Hari is looking to advance his career by taking on more responsibility and potentially moving into a leadership position, where he can continue to grow and make significant contributions."
       ]
     },    
     {
       "patterns": [
-        "what's your name",
-        "who are you",
-        "what do you go by",
-        "tell me your name",
-        "identify yourself",
-        "introduce yourself",
-        "your name?",
-        "who is behind the screen",
-        "are you a person",
-        "who created you"
+        "Where does Hari see himself in the future?",
+        "What role does Hari envision for himself in his next career step?",
+        "Can you describe Hari's desired position for his upcoming role?",
+        "What position is Hari targeting for his next career move?",
+        "what positions hari interested on his next role",
+        "positions interested",
+        "next positions",
+        "next roles",
+        "next role",
+        "list of roles he is interested"
       ],
       "responses": [
-        "I am Harvi, a personal tech assistant of Hari. You can ask me anything you need to know about Hari's personal and professional career.",
-        "You can call me Harvi. I am Hari's personal tech assistant. How can I assist you with information about Hari?",
-        "I go by the name Harvi. I am Hari's personal tech assistant. What can I do for you regarding Hari?",
-        "I'm Harvi, Hari's personal tech assistant. How may I assist you with inquiries about Hari?",
-        "I'm Hari's digital assistant, known as Harvi. You can rely on me for information about Hari's personal and professional life.",
-        "I'm Harvi, at your service as Hari's personal tech assistant! What do you need to know about Hari?",
-        "Greetings! I'm Harvi, Hari's personal tech assistant. Feel free to ask me anything about Hari.",
-        "I am an AI named Harvi, designed to assist with Hari's tech-related queries. How can I help you learn more about Hari?",
-        "You can call me Harvi. I'm Hari's personal tech assistant. How can I assist you with information about Hari?",
-        "I'm Harvi, created to assist you with information about Hari's personal and professional career as his personal tech assistant."
+        "For his next career step, Hari sees himself thriving in roles such as Solution Architect, Data Architect, Team Leader, Senior Developer with a Python background, Senior Data Engineer, or Full Stack Web Developer.",
+        "Hari's ideal next role could be as a Solution Architect, Data Architect, Team Leader, Senior Developer specializing in Python, Senior Data Engineer, or Full Stack Web Developer.",
+        "In the future, Hari envisions himself excelling in positions such as Solution Architect, Data Architect, Team Leader, Senior Developer with a Python background, Senior Data Engineer, or Full Stack Web Developer.",
+        "Hari's targeted positions for his next career move include Solution Architect, Data Architect, Team Leader, Senior Developer with a Python background, Senior Data Engineer, or Full Stack Web Developer."
       ]
-    },    
-    {
-      "patterns": ["tell me about yourself", "introduce yourself", "who are you", "describe yourself", "give me an overview"],
-      "responses": ["I'm Hari, a passionate individual with a love for technology and innovation. My goal is to make a positive impact through my work."]
     },
     {
-      "patterns": ["what is your aim", "what motivates you", "what drives you", "what inspires you", "your aspirations"],
-      "responses": ["My aim is to continuously learn and grow, contributing my skills to solve real-world problems. I'm motivated by the desire to create meaningful and impactful solutions."]
+      "patterns": [
+        "Can you list some of the projects Hari worked on?",
+        "What are some of the projects Hari has been involved in?",
+        "Could you tell me about some of Hari's past projects?"
+      ],
+      "responses": [
+        "Hari has worked on various different projects throughout his career, spanning automations, application development, web development, analytics, visualizations, full-stack web apps, and web scrapers."
+      ]
     },
     {
-      "patterns": ["what are your goals", "future plans", "where do you see yourself", "your ambitions", "what do you want to achieve"],
-      "responses": ["My goal is to excel in my field, collaborating with talented individuals, and contributing to projects that push the boundaries of innovation."]
+      "patterns": [
+        "Can you elaborate on any of Hari's projects in detail?",
+        "Tell me more about one of Hari's projects.",
+        "Could you provide details about a specific project Hari worked on?"
+      ],
+      "responses": [
+        "With his potential, Hari successfully built a web app in his current role, starting from frontend to backend. He worked on an agile methodology, progressing through different phases. The application was hosted in Azure and involved transforming and integrating client data into databases using ETL pipelines and Python scripts developed with Azure Functions."
+      ]
     },
     {
-      "patterns": ["what are your skillsets", "tell me about your skills", "your expertise", "what can you do", "list your skills"],
-      "responses": ["I have expertise in areas such as [List of your key skills]. I continuously update my skills to stay at the forefront of technology."]
+      "patterns": [
+        "Tell me about a recent project Hari worked on outside of his professional work.",
+        "Can you provide details about a personal project Hari developed?",
+        "What are some of the side projects Hari has been involved in?"
+      ],
+      "responses": [
+        "Outside of his professional work, Hari involved himself in learning new ideas and developing projects out of passion. One of his recent projects was to develop a web app for a startup restaurant company. The web app, developed using Python Flask with HTML/CSS/JavaScript, is hosted on the Render cloud platform. Orders are integrated into Firebase, and payments are processed through Stripe. You can check out the application here: [Madras Veggie Web App](https://madrasveggie.onrender.com/)"
+      ]
+    },            
+    {
+      "patterns": [
+        "What are some of Hari's achievements and recognitions?",
+        "Can you tell me about Hari's awards and accomplishments?",
+        "Could you share some of Hari's notable achievements?",
+        "achievements and recognitions",
+        "achievements"
+      ],
+      "responses": [
+        "With his extraordinary work, Hari has been awarded twice at ABI for intensive automations, reducing 160 hours of manual workloads. He also received the Beer Shot award for his critical handling of a situation when the web app was shut down due to data unavailability from Brewdat or Databricks."
+      ]
     },
     {
-      "patterns": ["what tech stacks are you familiar with", "tell me about your tech stacks", "your technical proficiency", "list your technologies", "which technologies do you use"],
-      "responses": ["I'm proficient in using [List of your key technologies and frameworks], allowing me to develop robust and efficient solutions."]
-    },
+      "patterns": [
+        "What certifications does Hari currently hold?",
+        "Can you list Hari's current certifications?",
+        "What certifications has Hari achieved?",
+        "certifications"
+      ],
+      "responses": [
+        "Hari is currently Microsoft certified in Azure as both a Developer and a Data Engineer."
+      ]
+    },        
     {
-      "patterns": ["can you share some of your projects", "tell me about your projects", "portfolio", "examples of your work", "show me your projects"],
-      "responses": ["Certainly! Here are a few of my notable projects: [Brief description of Project 1], [Brief description of Project 2], [Brief description of Project 3]."]
-    },
-    {
-      "patterns": ["what are your hobbies", "tell me about your interests", "outside of work", "what do you enjoy doing", "what are your pastimes"],
-      "responses": ["Outside of my professional life, I enjoy [List of your hobbies or interests], which keeps me balanced and inspired."]
-    },
-    {
-      "patterns": ["what are your achievements", "tell me about your accomplishments", "recognitions", "your successes", "awards and honors"],
-      "responses": ["I'm proud of achieving [mention an achievement or award], which reflects my dedication and commitment to excellence."]
-    },
-    {
-      "patterns": ["why should I hire you", "what sets you apart", "your strengths", "why you", "what makes you a great fit"],
-      "responses": ["Hiring me means gaining a dedicated and skilled professional. My passion for [your field] and my commitment to continuous improvement make me a valuable addition to any team."]
-    }
+      "patterns": [
+        "Why should I hire Hari?",
+        "What makes Hari a good candidate for hiring?",
+        "Can you provide reasons to consider hiring Hari?",
+        "need to hire",
+        "hire",
+        "any reason to hire",
+        "what makes hari to be fit?"
+      ],
+      "responses": [
+        "Hari possesses a clear vision of what needs to be done and demonstrates an open-minded, self-learning approach. He is focused and has an extraordinary capability for problem-solving. His skills in the technological areas where he has worked throughout his career are commendable. Moreover, he can adapt within any environment seamlessly, and his performance is evident from day one."
+      ]
+    }   
   ]
 }
