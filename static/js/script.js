@@ -124,7 +124,6 @@ function sendMessage() {
     // Send user input to the server
     fetch('/chat', {
         method: 'POST',
-        mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -134,6 +133,7 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data);
         var botResponse = data.bot_response;
         setTimeout(function() {
             var typingIndicator = document.querySelector('.message.bot.typing');
