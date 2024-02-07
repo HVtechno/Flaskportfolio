@@ -124,6 +124,7 @@ function sendMessage() {
     // Send user input to the server
     fetch('/chat', {
         method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
