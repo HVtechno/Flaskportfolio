@@ -1,61 +1,97 @@
+import nltk
+from nltk.stem import WordNetLemmatizer
 import json
-from nltk.chat.util import Chat, reflections
-from fuzzywuzzy import fuzz
-import re
+import pickle
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
+import random
+import tensorflow as tf
 
-def load_intents(file_path):
-    with open(file_path, 'r') as file:
-        intents_data = json.load(file)
-    return intents_data["intents"]
+# Initialize WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 
-def find_matching_pattern(user_input, patterns):
-    best_pattern = None
-    for pattern in patterns:
-        if isinstance(pattern, str):
-            if user_input.lower() == pattern.lower():
-                best_pattern = pattern
-                break
-            normalized_pattern = re.sub(r'[^\w\s]', '', pattern).lower()
-            normalized_input = re.sub(r'[^\w\s]', '', user_input).lower()
-            if normalized_pattern in normalized_input:
-                best_pattern = pattern
-                break
-        elif isinstance(pattern, re.Pattern):
-            match = pattern.search(user_input)
-            if match:
-                best_pattern = pattern.pattern
-                break
-    return best_pattern
+# Read data from JSON file
+data_file = open('static/intents/data.json').read()
+intents = json.loads(data_file)
 
-def create_chatbot(intents):
-    pairs = []
-    for intent in intents:
-        patterns = intent["patterns"]
-        responses = intent["responses"]
-        for pattern in patterns:
-            if isinstance(pattern, str):
-                pairs.append((pattern, responses))
-            else:
-                pairs.append((str(pattern), responses))
-    return Chat(pairs, reflections)
+# Initialize lists
+words = []
+classes = []
+documents = []
+ignore_words = ['?', '!']
 
-def chat_response(user_input, chatbot):
-    best_pattern = find_matching_pattern(user_input, [pair[0] for pair in chatbot._pairs])
-    if best_pattern:
-        response = chatbot.respond(best_pattern)
-        return response if response else "I apologize, my capabilities are limited to patterns I've been trained on. Could you please rephrase your sentence for me"
-    else:
-        return "I apologize, my capabilities are limited to patterns I've been trained on. Could you please rephrase your sentence for me"
+# Iterate through intents and patterns
+for intent in intents['intents']:
+    for pattern in intent['patterns']:
+        # Tokenize each word
+        w = nltk.word_tokenize(pattern)
+        words.extend(w)
+        # Add documents to the corpus
+        documents.append((w, intent['tag']))
+        # Add intent tag to classes list
+        if intent['tag'] not in classes:
+            classes.append(intent['tag'])
 
+# Lemmatize, lowercase, and remove duplicates from words
+words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
+words = sorted(list(set(words)))
+# Sort classes
+classes = sorted(list(set(classes)))
 
-if __name__ == "__main__":
-    intents_file_path = "static/intents/intents.json"
-    intents = load_intents(intents_file_path)
-    chatbot = create_chatbot(intents)
+# Save words and classes to pickle files
+pickle.dump(words, open('static/models/texts.pkl', 'wb'))
+pickle.dump(classes, open('static/models/labels.pkl', 'wb'))
 
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() in ["exit", "quit"]:
-            break
-        response = chat_response(user_input, chatbot)
-        print("ChatGPT:", response)
+# Create training data
+training = []
+output_empty = [0] * len(classes)
+
+# Iterate through documents
+for doc in documents:
+    bag = []
+    pattern_words = doc[0]
+    # Lemmatize each word
+    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
+    # Create bag of words
+    for w in words:
+        bag.append(1) if w in pattern_words else bag.append(0)
+    
+    # Create output row
+    output_row = list(output_empty)
+    output_row[classes.index(doc[1])] = 1
+    
+    # Append bag and output row to training data
+    training.append([bag, output_row])
+
+# Shuffle training data
+random.shuffle(training)
+
+# Separate bags of words and output rows
+bags_of_words = [item[0] for item in training]
+output_rows = [item[1] for item in training]
+
+# Convert bags of words and output rows into numpy arrays
+bags_of_words_np = np.array(bags_of_words)
+output_rows_np = np.array(output_rows)
+
+# Create model
+model = Sequential()
+model.add(Dense(128, input_shape=(len(bags_of_words_np[0]),), activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(len(output_rows_np[0]), activation='softmax'))
+
+# Compile model
+sgd = tf.keras.optimizers.SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
+# Fit model
+hist = model.fit(bags_of_words_np, output_rows_np, epochs=200, batch_size=5, verbose=1)
+
+# Save model
+model.save('static/models/model.h5', hist)
+
+print("Model created")

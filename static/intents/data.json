@@ -1,6 +1,7 @@
 {
   "intents": [
     {
+      "tag": "greeting",
       "patterns": [
         "hello",
         "hi",
@@ -25,9 +26,11 @@
         "Greetings! Harvi here, your guide to Hari's world.",
         "Hey there! Harvi at your service, offering insights into Hari's personality.",
         "Hi! Harvi here, let's discover what's new in Hari's life."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "personal_status",
       "patterns": [
         "how's your day going",
         "how's everything with you",
@@ -52,9 +55,11 @@
         "My mood is positive, especially when I get to talk about Hari. How about you?",
         "Feeling good today, thanks! Let's delve into Hari's life, shall we?",
         "The latest is all about Hari's adventures. What aspect would you like to know about?"
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "self_description",
       "patterns": [
         "what should I call you",
         "how do you describe yourself",
@@ -78,9 +83,11 @@
         "I am an AI named Harvi, created to help you explore Hari's world.",
         "Behind my interface is Harvi, an AI developed to enlighten you about Hari.",
         "I was brought to life by the creators of this chatbot. You can call me Harvi."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "about_hari",
       "patterns" : [
         "Who is Hari?",
         "can you tell me about Hari",
@@ -111,9 +118,11 @@
         "Hari's unique blend of qualities, including his compassion, intelligence, and resilience, make him someone truly special.",
         "Prepare to be impressed by Hari's remarkable journey, filled with triumphs, challenges, and unwavering determination.",
         "Hari's story is a testament to the power of perseverance, kindness, and a relentless pursuit of excellence."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "hometown",
       "patterns": [
         "Where is Hari from originally?",
         "What's Hari's hometown?",
@@ -123,9 +132,11 @@
         "Hari is originally from India, born in the city of Madurai, located in the southern part of India.",
         "Hari's roots trace back to Madurai, a beautiful city in southern India, where he was born and raised.",
         "Hari's hometown is Madurai, a culturally rich city situated in the southern region of India."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "nationality",
       "patterns": [
         "What's Hari's nationality?",
         "What country does Hari belong to?",
@@ -135,9 +146,11 @@
         "Hari is Indian by nationality, having been born and raised in India from his childhood.",
         "Hari holds Indian citizenship, representing the diverse and vibrant culture of his homeland.",
         "Hari proudly identifies himself as Indian, reflecting his deep connection to the rich heritage of his country."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "background",
       "patterns": [
         "What's Hari's background?",
         "Can you tell me about Hari's origins?",
@@ -147,9 +160,11 @@
         "Hari hails from India, specifically from the beautiful city of Madurai in the southern part of the country. His nationality is Indian, and he embodies the rich culture and values of his homeland.",
         "Hari's background is deeply rooted in the cultural heritage of India, with Madurai being his birthplace and the foundation of his identity.",
         "Hari's origins lie in the city of Madurai, India, where he was born and raised, shaping his values and outlook on life."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "cultural_background",
       "patterns": [
         "What's Hari's cultural background?",
         "Tell me about Hari's cultural heritage.",
@@ -159,9 +174,11 @@
         "Hari's cultural background is rooted in India, particularly in Madurai, where he was born and raised. His upbringing in this culturally rich environment has influenced his outlook on life and shaped his identity.",
         "Hari's cultural heritage is deeply intertwined with the traditions and customs of India, reflecting his upbringing in the vibrant city of Madurai.",
         "Hari comes from a culturally diverse background, with his roots firmly planted in the traditions and values of India, especially those of his hometown, Madurai."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "reason_for_relocation",
       "patterns": [
         "Why did he move from India to Czech Republic?",
         "What prompted Hari to relocate from India to Czech Republic?",
@@ -173,9 +190,11 @@
         "Hari decided to move from India to Czech Republic in pursuit of his master's career in Information & Communication Technology after completing his Bachelor's of Technology from India and gaining 2 years of professional IT experience.",
         "His decision to move from India to Czech Republic was driven by his ambition to pursue a master's degree in Information & Communication Technology, following his completion of a Bachelor's of Technology in India, coupled with 2 years of professional IT experience.",
         "Hari's move from India to Czech Republic was primarily motivated by his desire to advance his career through pursuing a master's degree in Information & Communication Technology, building upon his academic background and 2 years of IT experience in India."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "arrival_date_czech_republic",
       "patterns": [
         "When did Hari land in Czech Republic?",
         "What was the timing of Hari's arrival in Czech Republic?",
@@ -186,9 +205,11 @@
         "Hari landed in Czech Republic in January 2017, amidst the cold winter.",
         "He arrived in Czech Republic during the winter of 2017, specifically in January.",
         "Hari's arrival in Czech Republic occurred in January 2017, marking the beginning of his journey in the country."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "reason_for_study_location",
       "patterns": [
         "Why did Hari choose Czech Republic for his master's career instead of other countries?",
         "What factors influenced Hari's decision to pursue his master's degree in Czech Republic?",
@@ -199,9 +220,11 @@
         "Despite applying to various colleges worldwide, Hari was drawn to Czech Republic due to its cultural charm, friendly environment, and excellent curriculum, which aligned well with his educational aspirations.",
         "Hari's decision to pursue his master's degree in Czech Republic was influenced by the country's appealing cultural ambiance, welcoming atmosphere, and the quality of the educational programs offered, which resonated with his academic goals.",
         "The allure of Czech Republic's cultural richness, coupled with its friendly environment and outstanding academic offerings, played a pivotal role in Hari's decision to pursue his master's studies in the country."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "professional_experience",
       "patterns": [
         "Can you highlight Hari's professional experiences?",
         "What are the key aspects of Hari's professional background?",
@@ -215,9 +238,11 @@
       ],
       "responses": [
         "Hari's professional journey has been marked by significant achievements. After completing his Bachelor's, he worked as a Software Engineer at Syntel, focusing on automation & manual testing, and then transitioned to Infosys as a Process Specialist, where he honed stakeholder management & communication skills. Subsequently, at Abinbev, Hari served as a Business Intelligence Expert, handling various responsibilities, and later assumed the role of Senior Developer, where he excelled in full-stack web app development, CI/CD maintenance, and mentoring."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "it_skills",
       "patterns": [
         "What are his key IT skills?",
         "Can you list Hari's primary IT skills?",
@@ -234,9 +259,11 @@
       ],
       "responses": [
         "Hari's key IT skills include proficiency in Python coding, where he specializes in various libraries and APIs such as Pandas, NumPy, Flask, FastAPI, and requests. Additionally, he is skilled in front-end development using HTML, CSS, JavaScript, and ReactJS, and backend development using Node.js and Python. He also has expertise in VB. Regarding databases, Hari is proficient in SQL, NoSQL, Oracle, and Databricks. In terms of cloud computing, he is Microsoft certified in Azure and also utilizes Google Cloud and Firebase for his personal projects outside of the office. Furthermore, he is currently learning AWS to further enhance his cloud computing skills."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "career_aspirations",
       "patterns": [
         "What are Hari's aspirations for his next career move?",
         "Could you tell me about Hari's objectives for his upcoming role?",
@@ -252,9 +279,11 @@
         "For his next role, Hari aims to attain a higher position, possibly even leading teams with a similar technological background, where he can effectively showcase his talents and continue to learn and grow professionally.",
         "Hari's objectives for his next career move are centered around achieving a position of higher responsibility, possibly involving leadership, where he can contribute his expertise and further his professional development.",
         "In his next role, Hari is looking to advance his career by taking on more responsibility and potentially moving into a leadership position, where he can continue to grow and make significant contributions."
-      ]
+      ],
+      "context": [""]
     },    
     {
+      "tag": "future_role",
       "patterns": [
         "Where does Hari see himself in the future?",
         "What role does Hari envision for himself in his next career step?",
@@ -272,9 +301,11 @@
         "Hari's ideal next role could be as a Solution Architect, Data Architect, Team Leader, Senior Developer specializing in Python, Senior Data Engineer, or Full Stack Web Developer.",
         "In the future, Hari envisions himself excelling in positions such as Solution Architect, Data Architect, Team Leader, Senior Developer with a Python background, Senior Data Engineer, or Full Stack Web Developer.",
         "Hari's targeted positions for his next career move include Solution Architect, Data Architect, Team Leader, Senior Developer with a Python background, Senior Data Engineer, or Full Stack Web Developer."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "projects_involved",
       "patterns": [
         "Can you list some of the projects Hari worked on?",
         "What are some of the projects Hari has been involved in?",
@@ -282,9 +313,11 @@
       ],
       "responses": [
         "Hari has worked on various different projects throughout his career, spanning automations, application development, web development, analytics, visualizations, full-stack web apps, and web scrapers."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "specific_project",
       "patterns": [
         "Can you elaborate on any of Hari's projects in detail?",
         "Tell me more about one of Hari's projects.",
@@ -292,9 +325,11 @@
       ],
       "responses": [
         "With his potential, Hari successfully built a web app in his current role, starting from frontend to backend. He worked on an agile methodology, progressing through different phases. The application was hosted in Azure and involved transforming and integrating client data into databases using ETL pipelines and Python scripts developed with Azure Functions."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "side_projects",
       "patterns": [
         "Tell me about a recent project Hari worked on outside of his professional work.",
         "Can you provide details about a personal project Hari developed?",
@@ -302,9 +337,11 @@
       ],
       "responses": [
         "Outside of his professional work, Hari involved himself in learning new ideas and developing projects out of passion. One of his recent projects was to develop a web app for a startup restaurant company. The web app, developed using Python Flask with HTML/CSS/JavaScript, is hosted on the Render cloud platform. Orders are integrated into Firebase, and payments are processed through Stripe. You can check out the application here: [Madras Veggie Web App](https://madrasveggie.onrender.com/)"
-      ]
+      ],
+      "context": [""]
     },            
     {
+      "tag": "achievements_recognition",
       "patterns": [
         "What are some of Hari's achievements and recognitions?",
         "Can you tell me about Hari's awards and accomplishments?",
@@ -314,9 +351,11 @@
       ],
       "responses": [
         "With his extraordinary work, Hari has been awarded twice at ABI for intensive automations, reducing 160 hours of manual workloads. He also received the Beer Shot award for his critical handling of a situation when the web app was shut down due to data unavailability from Brewdat or Databricks."
-      ]
+      ],
+      "context": [""]
     },
     {
+      "tag": "certifications",
       "patterns": [
         "What certifications does Hari currently hold?",
         "Can you list Hari's current certifications?",
@@ -325,9 +364,11 @@
       ],
       "responses": [
         "Hari is currently Microsoft certified in Azure as both a Developer and a Data Engineer."
-      ]
+      ],
+      "context": [""]
     },        
     {
+      "tag": "reason_to_hire_hari",
       "patterns": [
         "Why should I hire Hari?",
         "What makes Hari a good candidate for hiring?",
@@ -339,7 +380,24 @@
       ],
       "responses": [
         "Hari possesses a clear vision of what needs to be done and demonstrates an open-minded, self-learning approach. He is focused and has an extraordinary capability for problem-solving. His skills in the technological areas where he has worked throughout his career are commendable. Moreover, he can adapt within any environment seamlessly, and his performance is evident from day one."
-      ]
-    }   
+      ],
+      "context": [""]
+    },
+    {
+      "tag": "contact_hari",
+      "patterns": [
+        "How can I contact Hari?",
+        "What are the ways to reach Hari?",
+        "Contact details for Hari?",
+        "I need to get in touch with Hari.",
+        "Can you provide Hari's contact information?",
+        "How do I reach Hari?",
+        "Ways to contact Hari?"
+      ],
+      "responses": [
+        "You can reach Hari through his personal number +420776245529 or WhatsApp him on the same number. Alternatively, you can also drop an email to hganesh@gmail.com."
+      ],
+      "context": [""]
+    }       
   ]
 }
