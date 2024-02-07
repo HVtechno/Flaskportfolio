@@ -127,7 +127,18 @@ body{
 section {
     min-height: 100vh;
     padding: 10rem 7% 2rem;
+    opacity: 0;
+    transition: opacity 1.5s ease; /* Add transition for fade effect */
 }
+
+.home.active,
+.about.active,
+.education.active,
+.skills.active,
+.contact.active,
+.home-img {
+            opacity: 1; /* Show sections when active */
+        }
 
 .home{
     display: flex;
@@ -1322,4 +1333,6 @@ span {
         transform: rotate(360deg);
     }
 }
+
+/* animations */
 

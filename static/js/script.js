@@ -49,18 +49,35 @@ darkModeIcon.onclick = () => {
     document.body.classList.toggle('dark-mode');
 }
 
-/*----------scroll reveal---------------
-ScrollReveal({
-    reset: true,
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
+/*----------scroll reveal---------------*/
 
-ScrollReveal.reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal.reveal('.home-img img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
-ScrollReveal.reveal('.home-content h1, .about-img img', { origin: 'left' });
-ScrollReveal.reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });*/
+document.querySelector('.home').classList.add('active');
+
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const scrollTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const homeSection = document.querySelector('.home');
+
+    sections.forEach((section, index) => {
+        if (index !== 0) {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollTop >= sectionTop - windowHeight / 2 && scrollTop < sectionTop + sectionHeight - windowHeight / 2) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        } else {
+            const sectionTop = homeSection.offsetTop;
+            if (scrollTop < sectionTop + windowHeight / 2) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        }
+    });
+});
 
 /*----Chatbot----*/
 
