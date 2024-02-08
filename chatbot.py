@@ -1,97 +1,44 @@
-import nltk
-from nltk.stem import WordNetLemmatizer
 import json
-import pickle
-import numpy as np
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout
-from keras.optimizers import SGD
+import nltk
 import random
-import tensorflow as tf
+import pickle
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
 
-# Initialize WordNetLemmatizer
+# Load the intents data
+with open('static/intents/data.json') as file:
+    data = json.load(file)
+
+# Initialize the lemmatizer
 lemmatizer = WordNetLemmatizer()
 
-# Read data from JSON file
-data_file = open('static/intents/data.json').read()
-intents = json.loads(data_file)
-
-# Initialize lists
-words = []
-classes = []
+# Initialize empty lists for documents and classes
 documents = []
-ignore_words = ['?', '!']
+classes = []
+text = []
+intents = []
 
-# Iterate through intents and patterns
-for intent in intents['intents']:
+# Preprocess the data
+for intent in data['intents']:
     for pattern in intent['patterns']:
-        # Tokenize each word
-        w = nltk.word_tokenize(pattern)
-        words.extend(w)
-        # Add documents to the corpus
-        documents.append((w, intent['tag']))
-        # Add intent tag to classes list
-        if intent['tag'] not in classes:
-            classes.append(intent['tag'])
+        words = word_tokenize(pattern)
+        words = [lemmatizer.lemmatize(word.lower()) for word in words if word.isalnum()]
+        text.append(" ".join(words))
+        intents.append(intent['tag'])
+    if intent['tag'] not in classes:
+        classes.append(intent['tag'])
 
-# Lemmatize, lowercase, and remove duplicates from words
-words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
-words = sorted(list(set(words)))
-# Sort classes
-classes = sorted(list(set(classes)))
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(text)
 
-# Save words and classes to pickle files
-pickle.dump(words, open('static/models/texts.pkl', 'wb'))
-pickle.dump(classes, open('static/models/labels.pkl', 'wb'))
+y = [classes.index(intent) for intent in intents]
 
-# Create training data
-training = []
-output_empty = [0] * len(classes)
+classifier = MultinomialNB()
+classifier.fit(X, y)
 
-# Iterate through documents
-for doc in documents:
-    bag = []
-    pattern_words = doc[0]
-    # Lemmatize each word
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
-    # Create bag of words
-    for w in words:
-        bag.append(1) if w in pattern_words else bag.append(0)
-    
-    # Create output row
-    output_row = list(output_empty)
-    output_row[classes.index(doc[1])] = 1
-    
-    # Append bag and output row to training data
-    training.append([bag, output_row])
+pickle.dump(vectorizer, open('static/models/vectorizer.pkl', 'wb'))
+pickle.dump(classifier, open('static/models/classifier.pkl', 'wb'))
 
-# Shuffle training data
-random.shuffle(training)
-
-# Separate bags of words and output rows
-bags_of_words = [item[0] for item in training]
-output_rows = [item[1] for item in training]
-
-# Convert bags of words and output rows into numpy arrays
-bags_of_words_np = np.array(bags_of_words)
-output_rows_np = np.array(output_rows)
-
-# Create model
-model = Sequential()
-model.add(Dense(128, input_shape=(len(bags_of_words_np[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(output_rows_np[0]), activation='softmax'))
-
-# Compile model
-sgd = tf.keras.optimizers.SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-
-# Fit model
-hist = model.fit(bags_of_words_np, output_rows_np, epochs=200, batch_size=5, verbose=1)
-
-# Save model
-model.save('static/models/model.h5', hist)
-
-print("Model created")
+print("Model training completed.")

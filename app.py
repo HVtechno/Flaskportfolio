@@ -1,12 +1,10 @@
-import nltk
-nltk.download('popular')
-from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
-import pickle
-import numpy as np
-from keras.models import load_model
 import json
 import random
+import pickle
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import LinearSVC
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -26,52 +24,28 @@ RECEIVER = os.getenv('SMTP_RECEIVER')
 app = Flask(__name__)
 CORS(app)
 
-# Load resources
+# Load data
 with open('static/intents/data.json') as file:
-    intents = json.load(file)
+    data = json.load(file)
 
-with open('static/models/texts.pkl', 'rb') as file:
-    words = pickle.load(file)
+# Initialize lemmatizer
+lemmatizer = WordNetLemmatizer()
 
-with open('static/models/labels.pkl', 'rb') as file:
-    classes = pickle.load(file)
-
-# Load the model
-model = load_model('static/models/model.h5')
+# Load TF-IDF vectorizer and classifier from disk
+vectorizer = pickle.load(open('static/models/vectorizer.pkl', 'rb'))
+classifier = pickle.load(open('static/models/classifier.pkl', 'rb'))
+print("Model loaded successfully.")
 
 def clean_up_sentence(sentence):
-    return [lemmatizer.lemmatize(word.lower()) for word in nltk.word_tokenize(sentence)]
+    words = word_tokenize(sentence)
+    words = [lemmatizer.lemmatize(word.lower()) for word in words if word.isalnum()]
+    return " ".join(words)
 
-def bow(sentence, words):
-    return np.array([1 if word in sentence else 0 for word in words])
-
-def predict_class(sentences):
-    # Clean up sentences
-    cleaned_sentences = [clean_up_sentence(sentence) for sentence in sentences]
-    
-    # Convert sentences to bags of words
-    bows = [bow(sentence, words) for sentence in cleaned_sentences]
-    
-    # Predict classes for all sentences
-    predictions = model.predict(np.array(bows))
-    
-    # Process predictions for each sentence
-    return [process_prediction(prediction) for prediction in predictions]
-
-def process_prediction(prediction):
-    # Filter out predictions below threshold
-    indexes = np.where(prediction > 0.25)[0]
-    return [(i, prediction[i]) for i in indexes]
-
-def getResponse(ints, intents_json):
-    tag = classes[ints[0][0]]
-    for intent in intents_json['intents']:
-        if intent['tag'] == tag:
+def get_response(intent_tag):
+    for intent in data['intents']:
+        if intent['tag'] == intent_tag:
             return random.choice(intent['responses'])
-
-def chatbot_response(msg):
-    ints = predict_class([msg])[0]
-    return getResponse(ints, intents)
+    return "Sorry, I don't understand that."
 
 @app.route('/')
 def index():
@@ -80,8 +54,10 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.json.get('user_input', '')
-    print('Received user input:', user_input)
-    bot_response = chatbot_response(user_input)
+    cleaned_input = clean_up_sentence(user_input)
+    vectorized_input = vectorizer.transform([cleaned_input])
+    predicted_intent = classifier.predict(vectorized_input)[0]
+    bot_response = get_response(predicted_intent)
     return jsonify({'bot_response': bot_response})
 
 @app.route('/send_message', methods=['POST'])
@@ -129,6 +105,6 @@ def send_confirmation_email(user_data):
 
 if __name__ == '__main__':
     options = {
-        'request_timeout': 120  # Set the timeout to 120 seconds
+        'request_timeout': 120
     }
     app.run(debug=True, threaded=True, host='0.0.0.0', port=5000, **options)
