@@ -131,7 +131,4 @@ def send_confirmation_email(user_data):
         print(f"Error sending email: {e}")
 
 if __name__ == '__main__':
-    options = {
-        'request_timeout': 120
-    }
-    app.run(debug=True, **options)
+    app.run(debug=True)
