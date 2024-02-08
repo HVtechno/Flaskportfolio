@@ -71,6 +71,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i['responses'])
             break
     return result
+
 def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
@@ -131,4 +132,7 @@ def send_confirmation_email(user_data):
         print(f"Error sending email: {e}")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    options = {
+        'request_timeout': 120  # Set the timeout to 60 seconds
+    }
+    app.run(debug=True, threaded=True, host='0.0.0.0', port=5000, **options)
