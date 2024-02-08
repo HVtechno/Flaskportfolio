@@ -9,6 +9,7 @@ model = load_model('static/models/model.h5')
 import json
 import random
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 import smtplib
@@ -24,6 +25,7 @@ PASSWORD = os.getenv('SMTP_PASSWORD')
 RECEIVER = os.getenv('SMTP_RECEIVER')
 
 app = Flask(__name__)
+CORS(app)
 
 intents = json.loads(open('static/intents/data.json').read())
 words = pickle.load(open('static/models/texts.pkl','rb'))
@@ -129,4 +131,7 @@ def send_confirmation_email(user_data):
         print(f"Error sending email: {e}")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    options = {
+        'request_timeout': 120
+    }
+    app.run(debug=True, **options)

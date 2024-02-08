@@ -145,7 +145,7 @@ function sendMessage() {
                 chatDisplay.innerHTML += '<div class="message bot"><span class="message-content">' + botResponse + '</span></div>';
             }
             chatDisplay.scrollTop = chatDisplay.scrollHeight;
-        }, 1000); // Adjust the delay time as needed
+        }, 2500); // Adjust the delay time as needed
     })
     .catch(error => {
         console.error('Error sending message:', error);
