@@ -1091,6 +1091,8 @@ span {
     .footer p {
         text-align: center;
         margin-top: 2rem;
+        word-wrap: break-word;
+        display: inline-block;
     }
 }
 
@@ -1303,7 +1305,7 @@ span {
         border-radius: 0;
     }
     .chat-content {
-        max-height: 450px;
+        max-height: 490px;
     }
     .chatbox__heading--header {
         font-size: 1.5rem;

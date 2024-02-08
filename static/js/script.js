@@ -133,7 +133,6 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         var botResponse = data.bot_response;
         setTimeout(function() {
             var typingIndicator = document.querySelector('.message.bot.typing');
