@@ -1,6 +1,8 @@
 import json
 import random
 import pickle
+import nltk
+nltk.download('punkt')
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
