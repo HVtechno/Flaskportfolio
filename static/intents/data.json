@@ -398,6 +398,32 @@
         "You can reach Hari through his personal number +420776245529 or WhatsApp him on the same number. Alternatively, you can also drop an email to hganesh@gmail.com."
       ],
       "context": [""]
+    },
+    {
+      "tag": "goodbye_thank_you",
+      "patterns": [
+      "Goodbye and thank you",
+      "Thanks and goodbye",
+      "Thank you and farewell",
+      "Appreciate your help, goodbye",
+      "Thanks for everything, goodbye",
+      "Thank you, take care",
+      "Farewell and thanks",
+      "Appreciate it, goodbye",
+      "Thank you, goodbye"
+      ],
+      "responses": [
+      "You're welcome! Goodbye and take care.",
+      "No problem at all. Goodbye and thank you!",
+      "You're welcome. Farewell and thanks for reaching out!",
+      "Glad I could assist. Thank you, and goodbye!",
+      "It was my pleasure. Goodbye and thanks for your interaction!",
+      "Anytime! Thank you, and goodbye!",
+      "You're welcome. Goodbye, and don't hesitate to ask if you need anything else!",
+      "You're welcome. Take care and goodbye!",
+      "My pleasure. Goodbye and thank you for contacting us!"
+      ],
+      "context": [""]
     }       
   ]
 }
