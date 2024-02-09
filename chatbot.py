@@ -5,7 +5,7 @@ import pickle
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import LinearSVC
 
 # Load the intents data
 with open('static/intents/data.json') as file:
@@ -35,7 +35,7 @@ X = vectorizer.fit_transform(text)
 
 y = [classes.index(intent) for intent in intents]
 
-classifier = MultinomialNB()
+classifier = LinearSVC()
 classifier.fit(X, y)
 
 pickle.dump(vectorizer, open('static/models/vectorizer.pkl', 'wb'))
