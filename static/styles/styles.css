@@ -156,7 +156,7 @@ section {
 }
 
 .home-content h1{
-    font-size: 4.6rem;
+    font-size: 5.6rem;
     font-weight: 700;
     margin-bottom: .3rem;
 }
@@ -1055,6 +1055,9 @@ span {
     html {
         font-size: 50%;
     }
+    .home-content h1{
+        font-size: 4.5rem;
+    }
     #darkMode-icon {
         right: 6rem;
     }
@@ -1084,6 +1087,9 @@ span {
 @media (max-width: 365px) {
     .about-img img {
         width: 90vw;
+    }
+    .home-content h1{
+        font-size: 3.8rem;
     }
     .footer {
         flex-direction: column-reverse;
