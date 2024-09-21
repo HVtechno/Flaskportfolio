@@ -58,9 +58,13 @@ def index():
 def chat():
     user_input = request.json.get('user_input', '')
     cleaned_input = clean_up_sentence(user_input)
+    print(cleaned_input)
     vectorized_input = vectorizer.transform([cleaned_input])
+    print(vectorized_input)
     predicted_intent = classifier.predict(vectorized_input)[0]
+    print(predicted_intent)
     bot_response = get_response(predicted_intent)
+    print(bot_response)
     return jsonify({'bot_response': bot_response})
 
 @app.route('/send_message', methods=['POST'])
